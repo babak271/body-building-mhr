@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babak's Exercise Program</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8">Exercise Program</h1>
+
+        <!-- Tabs -->
+        <div class="flex">
+            <button class="tab-button bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded-tl-lg active" onclick="openTab(event, 'day1')">Day One</button>
+            <button class="tab-button bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded-tr-lg" onclick="openTab(event, 'day2')">Day Two</button>
+            <button class="tab-button bg-gray-200 hover:bg-gray-300 py-2 px-4" onclick="openTab(event, 'day3')">Day Three</button>
+        </div>
+
+        <!-- Tab Content: Day One -->
+        <div id="day1" class="tab-content mt-4">
+            <!-- Exercise Cards -->
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Exercise Card 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Machine Chest Fly</h2>
+                        <div class="video-container mb-4">
+                            <iframe src="https://www.youtube.com/embed/Z57CtFmRMxA" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <a href="https://youtu.be/Z57CtFmRMxA" class="block text-blue-500 hover:underline">Watch on YouTube</a>
+                    </div>
+                </div>
+
+                <!-- Exercise Card 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">Cable Crossover</h2>
+                        <div class="video-container mb-4">
+                            <iframe src="https://www.youtube.com/embed/taI4XduLpTk" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <a href="https://youtu.be/taI4XduLpTk" class="block text-blue-500 hover:underline">Watch on YouTube</a>
+                    </div>
+                </div>
+
+                <!-- Repeat for other exercises -->
+            </div>
+        </div>
+
+        <!-- Tab Content: Day Two -->
+        <div id="day2" class="tab-content mt-4">
+            <p class="text-lg">Day Two exercises will be added here.</p>
+        </div>
+
+        <!-- Tab Content: Day Three -->
+        <div id="day3" class="tab-content mt-4">
+            <p class="text-lg">Day Three exercises will be added here.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle tab switching -->
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+
+            // Deactivate all tab buttons
+            var tabButtons = document.getElementsByClassName("tab-button");
+            for (var i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('bg-gray-300');
+                tabButtons[i].classList.add('bg-gray-200');
+            }
+
+            // Show the selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Activate the clicked tab button
+            evt.currentTarget.classList.remove('bg-gray-200');
+            evt.currentTarget.classList.add('bg-gray-300');
+        }
+    </script>
+</body>
+</html>
