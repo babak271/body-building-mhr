@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Babak's Exercise Program</title>
+    <title>My BB Program</title>
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Custom styles -->
@@ -31,7 +31,7 @@
 </head>
 <body class="bg-gray-100 p-8">
     <div class="max-w-4xl mx-auto">
-        <h1 class="text-3xl font-bold text-center mb-8">Exercise Program</h1>
+        <h1 class="text-3xl font-bold text-center mb-8">My BB Program</h1>
 
         <!-- Tabs -->
         <div class="flex">
@@ -43,41 +43,20 @@
         <!-- Tab Content: Day One -->
         <div id="day1" class="tab-content mt-4">
             <!-- Exercise Cards -->
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <!-- Exercise Card 1 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-                    <div class="p-4">
-                        <h2 class="text-xl font-semibold mb-2">فلای دستگاه</h2>
-                        <div class="video-container mb-4">
-                            <iframe src="https://www.youtube.com/embed/Z57CtFmRMxA" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <a href="https://youtu.be/Z57CtFmRMxA" class="block text-blue-500 hover:underline">Watch on YouTube</a>
-                    </div>
-                </div>
-
-                <!-- Exercise Card 2 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-                    <div class="p-4">
-                        <h2 class="text-xl font-semibold mb-2">Cable Crossover</h2>
-                        <div class="video-container mb-4">
-                            <iframe src="https://www.youtube.com/embed/taI4XduLpTk" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <a href="https://youtu.be/taI4XduLpTk" class="block text-blue-500 hover:underline">Watch on YouTube</a>
-                    </div>
-                </div>
-
-                <!-- Repeat for other exercises -->
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 day-1">
             </div>
         </div>
 
         <!-- Tab Content: Day Two -->
         <div id="day2" class="tab-content mt-4">
-            <p class="text-lg">Day Two exercises will be added here.</p>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 day-2">
+            </div>
         </div>
 
         <!-- Tab Content: Day Three -->
         <div id="day3" class="tab-content mt-4">
-            <p class="text-lg">Day Three exercises will be added here.</p>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 day-3">
+            </div>
         </div>
     </div>
 
@@ -104,6 +83,59 @@
             evt.currentTarget.classList.remove('bg-gray-200');
             evt.currentTarget.classList.add('bg-gray-300');
         }
+
+        
+        function createCard(day, title, videoSrc, imgSrc) {
+            const cardHTML = `
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">${title}</h2>
+                        <div class="mb-4">
+                            <img src="${imgSrc}">
+                        </div>
+                        <div class="video-container mb-4">
+                            <iframe src="${videoSrc}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <a href="${videoSrc}" class="block text-blue-500 hover:underline">Watch on YouTube</a>
+                    </div>
+                </div>
+            `;
+
+            let containerDay='.day-1'
+            if (day==3) {
+                containerDay = '.day-3';
+            } else if(day==2) {
+                containerDay = '.day-2';
+            }
+
+            const container = document.querySelector(containerDay);
+            container.insertAdjacentHTML('beforeend', cardHTML);
+        }
+
+        createCard(1, ' 3*12 جلو ران نشسته', 'https://www.youtube.com/embed/4ZDm5EbiFI8?si=DCRuHT6L5N0tDA0F', 'https://fitamin.ir/mag/wp-content/uploads/2021/10/%D8%AC%D9%84%D9%88-%D9%BE%D8%A7-%D8%AF%D8%B3%D8%AA%DA%AF%D8%A7%D9%87.jpg');
+        createCard(1, '3*15 پشت ران خوابیده دستگاه ', 'https://www.youtube.com/embed/UusLs3kr0H8?si=A5p9TzkbtI_42fqw', 'https://filofit.ir/wp-content/uploads/2022/03/%D9%BE%D8%B4%D8%AA-%D8%B1%D8%A7%D9%86-%D8%AE%D9%88%D8%A7%D8%A8%DB%8C%D8%AF%D9%87.jpeg');
+        createCard(1, ' 12,10,8,6 خیاطه داخل پا ' , 'https://www.youtube.com/embed/JSru860MFLw?si=scd_HZ1SDO54BYSt', 'https://parssportco.com/wp-content/uploads/2023/02/%D8%AF%D8%A7%D8%AE%D9%84-%D8%B1%D8%A7%D9%86-%D8%AF%D8%B3%D8%AA%DA%AF%D8%A7%D9%87.jpg');
+        createCard(1, ' 12,10,8,6 خیاطه خارج پا ', 'https://www.youtube.com/embed/Rk-YfCBDzgc?si=u2c9YK_XrVWf-4Ww', 'https://parssportco.com/wp-content/uploads/2023/02/%D8%AF%D8%A7%D8%AE%D9%84-%D8%B1%D8%A7%D9%86-%D8%AF%D8%B3%D8%AA%DA%AF%D8%A7%D9%87.jpg');
+        createCard(1, '4*20 Donkey kicks', 'https://www.youtube.com/embed/SJ1Xuz9D-ZQ?si=dxuhZ8_UUchsl4SN', 'https://image.brigitte.de/13461088/t/G0/v1/w2048/r1.5/-/donkey-kicks-fitness-uebung-fuer-den-po-illustration.jpg');
+        createCard(1, ' 3*10 Superman', 'https://www.youtube.com/embed/J9zXkxUAfUA?si=LvXHr2srupZipZOu', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnWk56RqooAz7AdzbEa6hm04GoZtR1RBgjoejfjIaaV5FI_pg6k_CVu_tK6MFV_CZaSUk&usqp=CAU');
+        createCard(1, ' 4*20 kegel', 'https://www.youtube.com/embed/Wjb20SXIvA4?si=ddxZw8LL8pZQ7cth', 'https://cdn.shopify.com/s/files/1/0910/9374/files/better-sex_low_large.jpg?1696514245963602371');
+
+        createCard(2, '3*12 دستگاه لت دست باز', 'https://www.youtube.com/embed/-chGICDarfA?si=eujZFxqivQ3vm59h', 'https://fitshim.com/wp-content/uploads/2021/04/wide-grip-lat-pull-down-muscles-worked.jpg');
+        createCard(2,'دستگاه H مچ برعکس  3*10 ', 'https://www.youtube.com/embed/eYIOlY7Gu9U?si=JeOw_KpLqLqPUH5r', 'https://fitshim.com/wp-content/uploads/2022/07/h-machine-row-muscles-worked.jpg');
+        createCard(2, '3*15 فلای معکوس دست موازی', 'https://www.youtube.com/embed/wg5QG771qtg?si=_1l2fEZrYw815E_d', 'https://fitshim.com/wp-content/uploads/2022/06/reverse-machine-fly-pn-muscles-worked.jpg');
+        createCard(2, '12,10,8,6 قایق دست جمع دستگاه', 'https://www.youtube.com/embed/mOZiOCl0Co0?si=Ery_qt5yxUP-QiXa', 'https://storage.novinfitness.com/storage/images/2023-10-17/novinfitness.com_shoulder-width-cable-row-2.jpg');
+        createCard(2, '3*10 سرشانه خلفی نیمکت شیب دار دمبل', 'https://www.youtube.com/embed/ei3ximFV6pg?si=ZxOboswXbe4HoROT', 'https://fitshim.com/wp-content/uploads/2022/05/incline-dumbbell-rear-fly-muscles-worked.jpg');
+        createCard(2, '4*15 پشت بازو سیم کش ایستاده', 'https://www.youtube.com/embed/LejnQEUw0UY?si=Kv37qoaqv_RIkgQc', 'https://fitshim.com/wp-content/uploads/2020/07/tricep-cable-pushdown-muscles-worked.jpg');
+         createCard(2, '3*8 پشت بازو دمبل خوابیده', 'https://www.youtube.com/embed/vE2qXTC5OuE?si=RLd5CVeQZ0U0cZR7', 'https://fitshim.com/wp-content/uploads/2020/07/lying-dumbbell-tricep-extension-muscles-worked.jpg');
+        
+        createCard(3, ' 3*20 فلای دستگاه نشسته', 'https://www.youtube.com/embed/oLDLuUonwXY?si=tyFXac4VrQCjd0Dg', 'https://mohammadzamani.fit/content/Images/ExerciseGallery/Origin/a1ee93fc7f7b4c9e82d0a299af90e4ad.jpg');
+        createCard(3, ' 12,10,8,6 پرس بالاسینه دستگاه', 'https://www.youtube.com/embed/VEROkLkumTM?si=HVviep8FKyFfBOnY', 'https://fitshim.com/wp-content/uploads/2020/07/dastgah-bala-sine-pres-muscles-worked.jpg')
+        createCard(3, ' 3*10 پرس دمبل جفت روی نیمکت تخت', 'https://www.youtube.com/embed/cPbeB1ZGb6Y?si=ygWpEFhcG9bKURe0', 'https://fitshim.com/wp-content/uploads/2022/11/seated-dumbbell-svend-press-muscles-worked.jpg')
+        createCard(3, ' 3*12 نشر جانب دستگاه', 'https://www.youtube.com/embed/jS38Oq-0RjQ?si=E0g8VQO_W886X3-4', 'https://fitshim.com/wp-content/uploads/2022/05/standing-machine-lateral-raise-muscles-worked.jpg')
+        createCard(3, ' 3*12 پرس سرشانه دمبل نشسته', 'https://www.youtube.com/embed/h2aN8Vc2Teo?si=Q4QuzCV3la61dXtH', 'https://fitshim.com/wp-content/uploads/2021/05/seated-dumbbells-shoulder-press-muscles-worked.jpg')
+        createCard(3, ' 5 min پلانک', 'https://www.youtube.com/embed/45dObhsVJy8?si=E1RMlaUrpgimuR6o', 'https://routination.com/wp-content/uploads/2023/12/exercises-full68.gif')
+        createCard(3, ' 5 min دراز نشست', 'https://www.youtube.com/embed/QrJOVtSn1WY?si=yJfcWsv6_CwqZFRE', '')
+
     </script>
 </body>
 </html>
